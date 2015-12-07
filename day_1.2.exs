@@ -13,4 +13,4 @@ end
     ({?), index}, {level, _}) -> {level - 1, index}
   end)
 
-IO.puts("The answer is: #{answer + 1}")
+IO.puts(answer + 1)
