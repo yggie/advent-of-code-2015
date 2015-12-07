@@ -1,4 +1,8 @@
-input = hd(System.argv)
+input = case System.argv do
+  ["--file", filename] -> File.read!(filename)
+  [input] -> input
+  _ -> raise "Invalid input"
+end
 
 {-1, answer} = input
   |> String.to_char_list
