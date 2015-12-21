@@ -95,8 +95,7 @@ defmodule BitwiseLogicGatesLazyInterpreter do
       _otherwise ->
         case Map.fetch(context, variable) do
           {:ok, {:lazy, expression}} ->
-            {result, context} = eval_expression(:not_lazy, expression, context)
-            {result, Map.put(context, variable, result)}
+            eval_assignment_expression(:not_lazy, expression, variable, context)
 
           {:ok, value} ->
             {value, context}
@@ -107,8 +106,8 @@ defmodule BitwiseLogicGatesLazyInterpreter do
     end
   end
 
-  defp assign(:lazy, variable, result, context) do
-    {result, Map.put(context, variable, {:lazy, result})}
+  defp assign(:lazy, variable, lazy_expression, context) do
+    {lazy_expression, Map.put(context, variable, {:lazy, lazy_expression})}
   end
 
   defp assign(:not_lazy, variable, result, context) do

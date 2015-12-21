@@ -1,4 +1,3 @@
-c("lib/interface.ex")
 input = Interface.read_input
 
 defmodule Diff do

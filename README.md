@@ -6,13 +6,13 @@ Solutions to the advent of code 2015: http://adventofcode.com/ written in Elixir
 To run each example, you will need to provide the input for your question:
 
 ```
-$ elixir <problem_filename> "<input>"
+$ elixir -pr lib/* <problem_filename> "<input>"
 ```
 
 or as a file:
 
 ```
-$ elixir <problem_filename> --file "<input_filename>"
+$ elixir -pr lib/* <problem_filename> --file "<input_filename>"
 ```
 
 ## License
