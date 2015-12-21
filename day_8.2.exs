@@ -1,8 +1,5 @@
-input = case System.argv do
-  ["--file", filename] -> File.read!(filename)
-  [input] -> input
-  _ -> raise "Invalid input"
-end
+c("lib/interface.ex")
+input = Interface.read_input
 
 defmodule Diff do
   def compute("", total) do
@@ -22,10 +19,10 @@ defmodule Diff do
   end
 end
 
-diff = input
+answer = input
   |> String.split("\n")
   |> Enum.reduce(-2, fn(line, diff) ->
     diff + Diff.compute(line, 2)
   end)
 
-IO.puts(diff)
+Interface.print_output(answer)

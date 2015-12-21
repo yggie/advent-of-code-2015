@@ -1,8 +1,5 @@
-input = case System.argv do
-  ["--file", filename] -> File.read!(filename)
-  [input] -> input
-  _ -> raise "Invalid input"
-end
+c("lib/interface.ex")
+input = Interface.read_input
 
 {_, map} = input
   |> String.to_char_list
@@ -24,4 +21,4 @@ end
 
 answer = map |> Map.keys |> Enum.count
 
-IO.puts(answer)
+Interface.print_output(answer)

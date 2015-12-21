@@ -1,8 +1,5 @@
-input = case System.argv do
-  ["--file", filename] -> File.read!(filename)
-  [input] -> input
-  _ -> raise "Invalid input"
-end
+c("lib/interface.ex")
+input = Interface.read_input
 
 defmodule InfiniteSequence do
   use GenServer
@@ -44,4 +41,4 @@ end
 
 answer = Stream.repeatedly(&InfiniteSequence.next_number/0) |> Enum.find(&check_value.(&1))
 
-IO.puts(answer)
+Interface.print_output(answer)

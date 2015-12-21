@@ -1,8 +1,5 @@
-input = case System.argv do
-  ["--file", filename] -> File.read!(filename)
-  [input] -> input
-  _ -> raise "Invalid input"
-end
+c("lib/interface.ex")
+input = Interface.read_input
 
 {-1, answer} = input
   |> String.to_char_list
@@ -13,4 +10,4 @@ end
     ({?), index}, {level, _}) -> {level - 1, index}
   end)
 
-IO.puts(answer + 1)
+Interface.print_output(answer + 1)

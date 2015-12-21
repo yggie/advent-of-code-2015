@@ -1,8 +1,5 @@
-input = case System.argv do
-  ["--file", filename] -> File.read!(filename)
-  [input] -> input
-  _ -> raise "Invalid input"
-end
+c("lib/interface.ex")
+input = Interface.read_input
 
 defmodule LightController do
   def perform_operation("turn on " <> range_string, light_grid) do
@@ -62,4 +59,4 @@ answer = input
   |> Map.values
   |> Enum.sum
 
-IO.puts(answer)
+Interface.print_output(answer)
